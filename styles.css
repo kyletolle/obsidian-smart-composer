@@ -991,6 +991,32 @@ button.smtcmp-chat-input-model-select {
   }
 }
 
+/* Mobile/iPad Specific Styles */
+@media (pointer: coarse) {
+  .smtcmp-assistant-message-actions {
+    /* Always show on touch devices */
+    opacity: 1; 
+    
+    button {
+      /* Increase touch target size for better tappability */
+      height: 32px;
+      width: 32px;
+      padding: 6px;
+      color: var(--text-muted);
+    }
+  }
+}
+
+.smtcmp-popover-content {
+  z-index: 1000;
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: var(--size-4-2);
+  font-size: var(--font-smallest);
+  animation: fadeIn 0.1s ease-in-out;
+}
+
 .smtcmp-popover-content {
   z-index: 1000;
   background-color: var(--background-primary);

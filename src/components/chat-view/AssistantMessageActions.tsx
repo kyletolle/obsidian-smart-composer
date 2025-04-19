@@ -22,19 +22,19 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <button>
+          <button onClick={handleCopy}>
             {copied ? (
               <Check
-                size={12}
+                size={18}
                 className="smtcmp-assistant-message-actions-icon--copied"
               />
             ) : (
-              <CopyIcon onClick={handleCopy} size={12} />
+              <CopyIcon size={18} />
             )}
           </button>
         </Tooltip.Trigger>
         <Tooltip.Portal>
-          <Tooltip.Content className="smtcmp-tooltip-content">
+          <Tooltip.Content className="smtcmp-tooltip-content" sideOffset={5}>
             Copy message
           </Tooltip.Content>
         </Tooltip.Portal>
@@ -67,7 +67,7 @@ function LLMResponesInfoButton({ message }: { message: ChatAssistantMessage }) {
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
-          <Tooltip.Content className="smtcmp-tooltip-content">
+          <Tooltip.Content className="smtcmp-tooltip-content" sideOffset={5}>
             View details
           </Tooltip.Content>
         </Tooltip.Portal>

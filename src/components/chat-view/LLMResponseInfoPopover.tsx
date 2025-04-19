@@ -25,11 +25,11 @@ export default function LLMResponseInfoPopover({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button>
-          <Info className="smtcmp-llm-info-icon--trigger" size={12} />
+          <Info className="smtcmp-llm-info-icon--trigger" size={18} />
         </button>
       </Popover.Trigger>
       {usage ? (
-        <Popover.Content className="smtcmp-popover-content smtcmp-llm-info-content">
+        <Popover.Content className="smtcmp-popover-content smtcmp-llm-info-content" sideOffset={5}>
           <div className="smtcmp-llm-info-header">LLM Response Information</div>
           <div className="smtcmp-llm-info-tokens">
             <div className="smtcmp-llm-info-tokens-header">Token Count</div>
@@ -75,7 +75,7 @@ export default function LLMResponseInfoPopover({
           </div>
         </Popover.Content>
       ) : (
-        <Popover.Content className="smtcmp-popover-content">
+        <Popover.Content className="smtcmp-popover-content" sideOffset={5}>
           <div>Usage statistics are not available for this model</div>
         </Popover.Content>
       )}
