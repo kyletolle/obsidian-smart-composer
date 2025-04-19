@@ -11,11 +11,34 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(message.content)
-    setCopied(true)
-    setTimeout(() => {
-      setCopied(false)
-    }, 1500)
+    try {
+      await navigator.clipboard.writeText(message.content)
+      setCopied(true)
+      setTimeout(() => {
+        setCopied(false)
+      }, 1500)
+    } catch (error) {
+      console.error('Failed to copy message:', error)
+      // Fallback approach for iOS (though this may not be supported in all contexts)
+      const textArea = document.createElement('textarea')
+      textArea.value = message.content
+      textArea.style.position = 'fixed'  // Prevent scrolling to bottom of page
+      document.body.appendChild(textArea)
+      textArea.focus()
+      textArea.select()
+      
+      try {
+        document.execCommand('copy')
+        setCopied(true)
+        setTimeout(() => {
+          setCopied(false)
+        }, 1500)
+      } catch (err) {
+        console.error('Fallback copy failed:', err)
+      }
+      
+      document.body.removeChild(textArea)
+    }
   }
 
   return (
