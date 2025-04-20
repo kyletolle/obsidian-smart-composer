@@ -995,8 +995,8 @@ button.smtcmp-chat-input-model-select {
 @media (pointer: coarse) {
   .smtcmp-assistant-message-actions {
     /* Always show on touch devices */
-    opacity: 1; 
-    
+    opacity: 1;
+
     button {
       /* Increase touch target size for better tappability */
       height: 32px;

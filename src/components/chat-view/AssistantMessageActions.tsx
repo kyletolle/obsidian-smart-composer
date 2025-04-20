@@ -22,11 +22,11 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
       // Fallback approach for iOS (though this may not be supported in all contexts)
       const textArea = document.createElement('textarea')
       textArea.value = message.content
-      textArea.style.position = 'fixed'  // Prevent scrolling to bottom of page
+      textArea.style.position = 'fixed' // Prevent scrolling to bottom of page
       document.body.appendChild(textArea)
       textArea.focus()
       textArea.select()
-      
+
       try {
         document.execCommand('copy')
         setCopied(true)
@@ -36,7 +36,7 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
       } catch (err) {
         console.error('Fallback copy failed:', err)
       }
-      
+
       document.body.removeChild(textArea)
     }
   }

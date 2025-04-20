@@ -29,7 +29,10 @@ export default function LLMResponseInfoPopover({
         </button>
       </Popover.Trigger>
       {usage ? (
-        <Popover.Content className="smtcmp-popover-content smtcmp-llm-info-content" sideOffset={5}>
+        <Popover.Content
+          className="smtcmp-popover-content smtcmp-llm-info-content"
+          sideOffset={5}
+        >
           <div className="smtcmp-llm-info-header">LLM Response Information</div>
           <div className="smtcmp-llm-info-tokens">
             <div className="smtcmp-llm-info-tokens-header">Token Count</div>
