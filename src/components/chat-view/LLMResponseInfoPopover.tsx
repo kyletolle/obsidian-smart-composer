@@ -25,7 +25,13 @@ export default function LLMResponseInfoPopover({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button>
-          <MessageCircle className="smtcmp-llm-info-icon--trigger" size={12} />
+          <>
+            <MessageCircle
+              className="smtcmp-llm-info-icon--trigger"
+              size={12}
+            />
+            <span style={{ fontSize: '8px', marginLeft: '2px' }}>💬I</span>
+          </>
         </button>
       </Popover.Trigger>
       {usage ? (
