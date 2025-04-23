@@ -25,7 +25,7 @@ export default function LLMResponseInfoPopover({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button>
-          <Info className="smtcmp-llm-info-icon--trigger" size={12} />
+          <Info className="smtcmp-llm-info-icon--trigger" size={16} />
         </button>
       </Popover.Trigger>
       {usage ? (

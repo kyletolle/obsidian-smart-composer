@@ -25,11 +25,11 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
           <button>
             {copied ? (
               <Check
-                size={12}
+                size={16}
                 className="smtcmp-assistant-message-actions-icon--copied"
               />
             ) : (
-              <CopyIcon onClick={handleCopy} size={12} />
+              <CopyIcon onClick={handleCopy} size={16} />
             )}
           </button>
         </Tooltip.Trigger>
