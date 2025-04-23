@@ -1,11 +1,15 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { Check, CopyIcon } from 'lucide-react'
+import { Platform } from 'obsidian'
 import { useMemo, useState } from 'react'
 
 import { ChatAssistantMessage } from '../../types/chat'
 import { calculateLLMCost } from '../../utils/llm/price-calculator'
 
 import LLMResponseInfoPopover from './LLMResponseInfoPopover'
+
+// Add iOS-specific styles if on an iOS device
+const isIPad = Platform.isMacOS && Platform.isTablet
 
 function CopyButton({ message }: { message: ChatAssistantMessage }) {
   const [copied, setCopied] = useState(false)
@@ -22,7 +26,7 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <button>
+          <button className={isIPad ? 'ipad-button' : ''}>
             {copied ? (
               <Check
                 size={16}
@@ -58,7 +62,7 @@ function LLMResponesInfoButton({ message }: { message: ChatAssistantMessage }) {
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div>
+          <div className={isIPad ? 'ipad-button' : ''}>
             <LLMResponseInfoPopover
               usage={message.metadata?.usage}
               estimatedPrice={cost}
@@ -82,7 +86,9 @@ export default function AssistantMessageActions({
   message: ChatAssistantMessage
 }) {
   return (
-    <div className="smtcmp-assistant-message-actions">
+    <div
+      className={`smtcmp-assistant-message-actions ${isIPad ? 'ios-actions' : ''}`}
+    >
       <LLMResponesInfoButton message={message} />
       <CopyButton message={message} />
     </div>

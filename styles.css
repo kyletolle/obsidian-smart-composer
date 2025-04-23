@@ -972,11 +972,11 @@ button.smtcmp-chat-input-model-select {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    width: 60px;
+    height: 32px;  /* Reduced from 60px to a more reasonable size */
+    width: 32px;   /* Reduced from 60px to a more reasonable size */
     padding: 0;
     background-color: transparent;
-    border-color: transparent;
+    border: none;
     box-shadow: none;
     color: var(--text-faint);
     cursor: pointer;
@@ -987,7 +987,24 @@ button.smtcmp-chat-input-model-select {
   }
 
   .smtcmp-assistant-message-actions-icon--copied {
+    color: var(--text-accent);  /* Use accent color for more visibility */
+  }
+}
+
+/* Special styling for iPad devices */
+.smtcmp-assistant-message-actions.ios-actions {
+  button, .ipad-button {
+    background-color: var(--background-secondary-alt);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    height: 5px;
+    width: 5px;
+    margin-left: 4px;
     color: var(--text-muted);
+  }
+
+  .smtcmp-assistant-message-actions-icon--copied {
+    color: var(--text-accent);
   }
 }
 
