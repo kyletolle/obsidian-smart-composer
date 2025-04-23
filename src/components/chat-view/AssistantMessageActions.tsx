@@ -1,5 +1,5 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
-import { Check, FileText } from 'lucide-react'
+import { Check, FileText, Info, MessageSquare } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 import { ChatAssistantMessage } from '../../types/chat'
@@ -30,23 +30,28 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
                   className="smtcmp-assistant-message-actions-icon--copied"
                   color="#22c55e" /* bright green color */
                 />
-                <span style={{ fontSize: '8px', marginLeft: '2px' }}>✓C</span>
+                <span style={{ fontSize: '8px', marginLeft: '2px' }}>✓</span>
               </>
             ) : (
               <>
-                <FileText 
-                  onClick={handleCopy} 
-                  size={12} 
+                <FileText
+                  onClick={handleCopy}
+                  size={12}
                   color="#3b82f6" /* bright blue color */
                 />
-                <span style={{ fontSize: '8px', marginLeft: '2px' }}>📄C</span>
+                <span style={{ fontSize: '8px', marginLeft: '2px' }}>cp</span>
               </>
             )}
           </button>
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content className="smtcmp-tooltip-content">
-            Copy message
+            Copy message{' '}
+            <MessageSquare
+              size={10}
+              color="#ff5500"
+              style={{ verticalAlign: 'middle' }}
+            />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
@@ -75,11 +80,21 @@ function LLMResponesInfoButton({ message }: { message: ChatAssistantMessage }) {
               estimatedPrice={cost}
               model={message.metadata?.model?.model}
             />
+            <Info
+              size={10}
+              color="#10b981"
+              style={{ position: 'absolute', bottom: -5, right: -5 }}
+            />
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content className="smtcmp-tooltip-content">
-            View details
+            View details{' '}
+            <Info
+              size={10}
+              color="#ff5500"
+              style={{ verticalAlign: 'middle' }}
+            />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

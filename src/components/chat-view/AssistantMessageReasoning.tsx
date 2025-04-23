@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { BrainCircuit, ChevronDown, ChevronUp } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 import ObsidianMarkdown from './ObsidianMarkdown'
@@ -41,7 +41,14 @@ export default function AssistantMessageReasoning({
         className="smtcmp-assistant-message-metadata-toggle"
         onClick={handleToggle}
       >
-        <span>Reasoning {showLoader && <DotLoader />}</span>
+        <span>
+          <BrainCircuit
+            size={16}
+            color="#00aaff"
+            style={{ verticalAlign: 'text-bottom', marginRight: '4px' }}
+          />
+          Reasoning {showLoader && <DotLoader />}
+        </span>
         {isExpanded ? (
           <ChevronUp className="smtcmp-assistant-message-metadata-toggle-icon" />
         ) : (

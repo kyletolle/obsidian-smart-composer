@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { BookIcon, ChevronDown, ChevronUp } from 'lucide-react'
 import { useRef, useState } from 'react'
 
 import { Annotation } from '../../types/llm/response'
@@ -22,7 +22,14 @@ export default function AssistantMessageAnnotations({
         className="smtcmp-assistant-message-metadata-toggle"
         onClick={handleToggle}
       >
-        <span>View Sources ({annotations.length})</span>
+        <span>
+          <BookIcon
+            size={16}
+            color="#9333ea"
+            style={{ verticalAlign: 'text-bottom', marginRight: '4px' }}
+          />
+          View Sources ({annotations.length})
+        </span>
         {isExpanded ? (
           <ChevronUp className="smtcmp-assistant-message-metadata-toggle-icon" />
         ) : (

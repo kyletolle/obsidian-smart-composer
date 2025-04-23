@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { CircleStop, History, Plus } from 'lucide-react'
+import { Award, CircleStop, History, Plus } from 'lucide-react'
 import { App, Notice } from 'obsidian'
 import {
   forwardRef,
@@ -544,7 +544,14 @@ const Chat = forwardRef<ChatRef, ChatProps>((props, ref) => {
   return (
     <div className="smtcmp-chat-container">
       <div className="smtcmp-chat-header">
-        <h1 className="smtcmp-chat-header-title">Chat</h1>
+        <h1 className="smtcmp-chat-header-title">
+          Chat{' '}
+          <Award
+            size={16}
+            color="#ff5500"
+            style={{ verticalAlign: 'middle' }}
+          />
+        </h1>
         <div className="smtcmp-chat-header-buttons">
           <button
             onClick={() => handleNewChat()}
