@@ -978,7 +978,8 @@ button.smtcmp-chat-input-model-select {
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
-    color: var(--text-faint);
+    /* Change from var(--text-faint) to a vibrant color */
+    color: #ff5500; /* bright orange */
     cursor: pointer;
     /* Ensure SVG icons appear properly on iPad */
     -webkit-appearance: none;
@@ -995,12 +996,12 @@ button.smtcmp-chat-input-model-select {
     }
 
     &:hover {
-      background-color: var(--background-modifier-hover);
+      background-color: rgba(255, 85, 0, 0.2); /* light orange background on hover */
     }
   }
 
   .smtcmp-assistant-message-actions-icon--copied {
-    color: var(--text-muted);
+    color: #22c55e; /* bright green */
   }
 }
 
