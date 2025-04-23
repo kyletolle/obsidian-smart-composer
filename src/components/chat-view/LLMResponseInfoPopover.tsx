@@ -5,7 +5,7 @@ import {
   ArrowUp,
   Coins,
   Cpu,
-  Info,
+  MessageCircle,
 } from 'lucide-react'
 
 import { ResponseUsage } from '../../types/llm/response'
@@ -25,7 +25,7 @@ export default function LLMResponseInfoPopover({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button>
-          <Info className="smtcmp-llm-info-icon--trigger" size={12} />
+          <MessageCircle className="smtcmp-llm-info-icon--trigger" size={12} />
         </button>
       </Popover.Trigger>
       {usage ? (

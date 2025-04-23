@@ -1,5 +1,5 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
-import { Check, CopyIcon } from 'lucide-react'
+import { Check, FileText } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 import { ChatAssistantMessage } from '../../types/chat'
@@ -29,7 +29,7 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
                 className="smtcmp-assistant-message-actions-icon--copied"
               />
             ) : (
-              <CopyIcon onClick={handleCopy} size={12} />
+              <FileText onClick={handleCopy} size={12} />
             )}
           </button>
         </Tooltip.Trigger>
