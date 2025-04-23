@@ -967,6 +967,64 @@ button.smtcmp-chat-input-model-select {
   display: flex;
   align-items: center;
   justify-content: end;
+  opacity: 1; /* Ensure always visible by default */
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--text-faint);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--background-modifier-hover);
+    }
+  }
+
+  .smtcmp-assistant-message-actions-icon--copied {
+    color: var(--text-muted);
+  }
+}
+
+/* Mobile/iPad Specific Styles */
+@media (pointer: coarse) {
+  .smtcmp-assistant-message-actions {
+    /* Always show on touch devices */
+    opacity: 1;
+    display: flex !important; /* Ensure display on iPad */
+    visibility: visible !important; /* Ensure visibility on iPad */
+    margin-top: 8px; /* Add some spacing */
+
+    button {
+      /* Increase touch target size for better tappability */
+      height: 32px;
+      width: 32px;
+      min-height: 32px; /* Ensure minimum height */
+      min-width: 32px; /* Ensure minimum width */
+      padding: 6px;
+      color: var(--text-muted);
+      opacity: 1; /* Ensure button opacity */
+      display: flex !important; /* Force display */
+    }
+  }
+
+  /* Ensure the info popover button is visible */
+  .smtcmp-llm-info-icon--trigger {
+    opacity: 1;
+    color: var(--text-muted);
+  }
+}
+
+.smtcmp-assistant-message-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 
   button {
     display: flex;
@@ -1005,16 +1063,6 @@ button.smtcmp-chat-input-model-select {
       color: var(--text-muted);
     }
   }
-}
-
-.smtcmp-popover-content {
-  z-index: 1000;
-  background-color: var(--background-primary);
-  border: 1px solid var(--background-modifier-border);
-  border-radius: var(--radius-s);
-  padding: var(--size-4-2);
-  font-size: var(--font-smallest);
-  animation: fadeIn 0.1s ease-in-out;
 }
 
 .smtcmp-popover-content {
