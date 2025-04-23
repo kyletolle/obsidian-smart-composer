@@ -963,6 +963,8 @@ button.smtcmp-chat-input-model-select {
   }
 }
 
+/* TODO: Something about the styles here hide the SVG on ipad for some reason. Let's start blowing
+ * away styles until we find the culprit */
 .smtcmp-assistant-message-actions {
   display: flex;
   align-items: center;
