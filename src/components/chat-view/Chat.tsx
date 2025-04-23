@@ -1,5 +1,14 @@
 import { useMutation } from '@tanstack/react-query'
-import { Award, CircleStop, History, Plus } from 'lucide-react'
+import {
+  Award,
+  CircleStop,
+  Heart,
+  History,
+  Plus,
+  Sparkles,
+  Star,
+  ThumbsUp,
+} from 'lucide-react'
 import { App, Notice } from 'obsidian'
 import {
   forwardRef,
@@ -661,6 +670,49 @@ const Chat = forwardRef<ChatRef, ChatProps>((props, ref) => {
               >
                 {message.content}
               </ReactMarkdownItem>
+              {message.content && (
+                <>
+                  <div
+                    style={{
+                      textAlign: 'right',
+                      marginTop: '4px',
+                      marginBottom: '2px',
+                    }}
+                  >
+                    <Sparkles
+                      size={16}
+                      color="#f59e0b"
+                      style={{
+                        display: 'inline',
+                        verticalAlign: 'middle',
+                        marginRight: '4px',
+                      }}
+                    />
+                    <ThumbsUp
+                      size={14}
+                      color="#3b82f6"
+                      style={{ display: 'inline', verticalAlign: 'middle' }}
+                    />
+                  </div>
+                  <AssistantMessageActions message={message} />
+                  <div style={{ textAlign: 'right', marginTop: '2px' }}>
+                    <Star
+                      size={14}
+                      color="#ec4899"
+                      style={{
+                        display: 'inline',
+                        verticalAlign: 'middle',
+                        marginRight: '4px',
+                      }}
+                    />
+                    <Heart
+                      size={12}
+                      color="#ef4444"
+                      style={{ display: 'inline', verticalAlign: 'middle' }}
+                    />
+                  </div>
+                </>
+              )}
               {message.content && <AssistantMessageActions message={message} />}
             </div>
           ),
