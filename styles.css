@@ -997,8 +997,8 @@ button.smtcmp-chat-input-model-select {
     background-color: var(--background-secondary-alt);
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-s);
-    height: 5px;
-    width: 5px;
+    height: 50px;
+    width: 50px;
     margin-left: 4px;
     color: var(--text-muted);
   }
