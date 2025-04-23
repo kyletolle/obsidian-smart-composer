@@ -29,6 +29,7 @@ export default function LLMResponseInfoPopover({
             <MessageCircle
               className="smtcmp-llm-info-icon--trigger"
               size={12}
+              color="#ec4899" /* bright pink color */
             />
             <span style={{ fontSize: '8px', marginLeft: '2px' }}>💬I</span>
           </>

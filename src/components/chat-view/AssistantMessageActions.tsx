@@ -28,12 +28,17 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
                 <Check
                   size={12}
                   className="smtcmp-assistant-message-actions-icon--copied"
+                  color="#22c55e" /* bright green color */
                 />
                 <span style={{ fontSize: '8px', marginLeft: '2px' }}>✓C</span>
               </>
             ) : (
               <>
-                <FileText onClick={handleCopy} size={12} />
+                <FileText 
+                  onClick={handleCopy} 
+                  size={12} 
+                  color="#3b82f6" /* bright blue color */
+                />
                 <span style={{ fontSize: '8px', marginLeft: '2px' }}>📄C</span>
               </>
             )}
