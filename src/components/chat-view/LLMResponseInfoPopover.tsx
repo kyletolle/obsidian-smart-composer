@@ -7,6 +7,7 @@ import {
   Cpu,
   Info,
 } from 'lucide-react'
+import { Platform } from 'obsidian'
 
 import { ResponseUsage } from '../../types/llm/response'
 
@@ -16,15 +17,26 @@ type LLMResponseInfoProps = {
   model?: string
 }
 
+// Helper to check if we're on a mobile device (iPad included)
+const isMobileDevice = (): boolean => {
+  return (
+    Platform.isMobile ||
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0
+  )
+}
+
 export default function LLMResponseInfoPopover({
   usage,
   estimatedPrice,
   model,
 }: LLMResponseInfoProps) {
+  const isMobile = isMobileDevice()
+
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <button>
+        <button className={isMobile ? 'smtcmp-mobile-info-button' : ''}>
           <Info className="smtcmp-llm-info-icon--trigger" size={18} />
         </button>
       </Popover.Trigger>

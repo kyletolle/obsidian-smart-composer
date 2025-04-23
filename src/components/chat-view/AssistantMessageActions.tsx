@@ -1,5 +1,6 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { Check, CopyIcon } from 'lucide-react'
+import { Platform } from 'obsidian'
 import { useMemo, useState } from 'react'
 
 import { ChatAssistantMessage } from '../../types/chat'
@@ -7,8 +8,18 @@ import { calculateLLMCost } from '../../utils/llm/price-calculator'
 
 import LLMResponseInfoPopover from './LLMResponseInfoPopover'
 
+// Helper to check if we're on a mobile device (iPad included)
+const isMobileDevice = (): boolean => {
+  return (
+    Platform.isMobile ||
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0
+  )
+}
+
 function CopyButton({ message }: { message: ChatAssistantMessage }) {
   const [copied, setCopied] = useState(false)
+  const isMobile = isMobileDevice()
 
   const handleCopy = async () => {
     try {
@@ -41,6 +52,23 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
     }
   }
 
+  // For mobile devices, render a simple button without tooltip
+  if (isMobile) {
+    return (
+      <button onClick={handleCopy} className="smtcmp-mobile-button">
+        {copied ? (
+          <Check
+            size={18}
+            className="smtcmp-assistant-message-actions-icon--copied"
+          />
+        ) : (
+          <CopyIcon size={18} />
+        )}
+      </button>
+    )
+  }
+
+  // For desktop, use tooltip
   return (
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
@@ -77,6 +105,22 @@ function LLMResponesInfoButton({ message }: { message: ChatAssistantMessage }) {
     })
   }, [message])
 
+  const isMobile = isMobileDevice()
+
+  // For mobile devices, render without tooltip
+  if (isMobile) {
+    return (
+      <div className="smtcmp-mobile-button">
+        <LLMResponseInfoPopover
+          usage={message.metadata?.usage}
+          estimatedPrice={cost}
+          model={message.metadata?.model?.model}
+        />
+      </div>
+    )
+  }
+
+  // For desktop, use tooltip
   return (
     <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
