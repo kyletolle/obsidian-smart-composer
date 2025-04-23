@@ -108,7 +108,7 @@ export default function AssistantMessageActions({
   message: ChatAssistantMessage
 }) {
   return (
-    <div className="smtcmp-assistant-message-actions">
+    <div className="TODOsmtcmp-assistant-message-actions">
       <LLMResponesInfoButton message={message} />
       <CopyButton message={message} />
     </div>
