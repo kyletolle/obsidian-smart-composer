@@ -980,6 +980,19 @@ button.smtcmp-chat-input-model-select {
     box-shadow: none;
     color: var(--text-faint);
     cursor: pointer;
+    /* Ensure SVG icons appear properly on iPad */
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+
+    /* Make sure SVG icons are displayed with proper dimensions on all devices */
+    svg {
+      display: block;
+      height: 12px;
+      width: 12px;
+      /* Force hardware acceleration to help with rendering on iPad */
+      transform: translateZ(0);
+    }
 
     &:hover {
       background-color: var(--background-modifier-hover);
