@@ -713,7 +713,6 @@ const Chat = forwardRef<ChatRef, ChatProps>((props, ref) => {
                   </div>
                 </>
               )}
-              {message.content && <AssistantMessageActions message={message} />}
             </div>
           ),
         )}
