@@ -966,7 +966,12 @@ button.smtcmp-chat-input-model-select {
 .smtcmp-assistant-message-actions {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end; /* Change 'end' to 'flex-end' for better compatibility */
+  position: relative; /* Add position relative to create a new stacking context */
+  z-index: 2; /* Ensure it's above other elements */
+  opacity: 1; /* Explicitly set opacity */
+  visibility: visible; /* Explicitly set visibility */
+  transform: none; /* Reset any transforms that might affect rendering */
 
   button {
     display: flex;
@@ -978,21 +983,33 @@ button.smtcmp-chat-input-model-select {
     background-color: transparent;
     border-color: transparent;
     box-shadow: none;
-    /* Change from var(--text-faint) to a vibrant color */
     color: #ff5500; /* bright orange */
     cursor: pointer;
-    /* Ensure SVG icons appear properly on iPad */
     -webkit-appearance: none;
     appearance: none;
     position: relative;
+    overflow: visible; /* Ensure overflowing content is visible */
+    transform: none; /* Reset any transforms that might affect rendering */
+
+    /* iOS/iPadOS specific fixes */
+    -webkit-transform: none;
+    -webkit-filter: none;
+    -webkit-perspective: none;
+    -webkit-backface-visibility: visible;
 
     /* Make sure SVG icons are displayed with proper dimensions on all devices */
     svg {
-      display: block;
+      display: inline-block; /* Change to inline-block for better compatibility */
       height: 12px;
       width: 12px;
-      /* Force hardware acceleration to help with rendering on iPad */
-      transform: translateZ(0);
+      transform: none; /* Remove translateZ to fix possible rendering issues */
+      opacity: 1; /* Ensure SVGs are fully opaque */
+      visibility: visible; /* Ensure SVGs are explicitly visible */
+
+      /* iOS/iPadOS specific fixes */
+      -webkit-transform: none;
+      -webkit-filter: none;
+      pointer-events: auto;
     }
 
     &:hover {
