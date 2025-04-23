@@ -3,12 +3,9 @@ import {
   ArrowDown,
   ArrowRightLeft,
   ArrowUp,
-  BarChart,
   Coins,
   Cpu,
-  Info,
   MessageCircle,
-  Zap,
 } from 'lucide-react'
 
 import { ResponseUsage } from '../../types/llm/response'
@@ -35,24 +32,12 @@ export default function LLMResponseInfoPopover({
               color="#ec4899" /* bright pink color */
             />
             <span style={{ fontSize: '8px', marginLeft: '2px' }}>💬</span>
-            <BarChart
-              size={14}
-              color="#10b981"
-              style={{ position: 'absolute', top: -3, right: -3 }}
-            />
           </>
         </button>
       </Popover.Trigger>
       {usage ? (
         <Popover.Content className="smtcmp-popover-content smtcmp-llm-info-content">
-          <div className="smtcmp-llm-info-header">
-            <Zap
-              size={16}
-              color="#f59e0b"
-              style={{ verticalAlign: 'middle', marginRight: '4px' }}
-            />
-            LLM Response Information
-          </div>
+          <div className="smtcmp-llm-info-header">LLM Response Information</div>
           <div className="smtcmp-llm-info-tokens">
             <div className="smtcmp-llm-info-tokens-header">Token Count</div>
             <div className="smtcmp-llm-info-tokens-grid">
@@ -98,14 +83,7 @@ export default function LLMResponseInfoPopover({
         </Popover.Content>
       ) : (
         <Popover.Content className="smtcmp-popover-content">
-          <div>
-            <Info
-              size={14}
-              color="#f43f5e"
-              style={{ verticalAlign: 'middle', marginRight: '4px' }}
-            />
-            Usage statistics are not available for this model
-          </div>
+          <div>Usage statistics are not available for this model</div>
         </Popover.Content>
       )}
     </Popover.Root>

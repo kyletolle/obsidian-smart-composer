@@ -1,5 +1,5 @@
 import * as Tooltip from '@radix-ui/react-tooltip'
-import { Check, FileText, Info, MessageSquare } from 'lucide-react'
+import { Check, FileText } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 import { ChatAssistantMessage } from '../../types/chat'
@@ -46,12 +46,7 @@ function CopyButton({ message }: { message: ChatAssistantMessage }) {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content className="smtcmp-tooltip-content">
-            Copy message{' '}
-            <MessageSquare
-              size={10}
-              color="#ff5500"
-              style={{ verticalAlign: 'middle' }}
-            />
+            Copy message
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
@@ -80,21 +75,11 @@ function LLMResponesInfoButton({ message }: { message: ChatAssistantMessage }) {
               estimatedPrice={cost}
               model={message.metadata?.model?.model}
             />
-            <Info
-              size={10}
-              color="#10b981"
-              style={{ position: 'absolute', bottom: -5, right: -5 }}
-            />
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content className="smtcmp-tooltip-content">
-            View details{' '}
-            <Info
-              size={10}
-              color="#ff5500"
-              style={{ verticalAlign: 'middle' }}
-            />
+            View details
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
