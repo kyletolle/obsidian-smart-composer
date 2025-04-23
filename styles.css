@@ -969,11 +969,6 @@ button.smtcmp-chat-input-model-select {
   display: flex;
   align-items: center;
   justify-content: flex-end; /* Change 'end' to 'flex-end' for better compatibility */
-  position: relative; /* Add position relative to create a new stacking context */
-  z-index: 2; /* Ensure it's above other elements */
-  opacity: 1; /* Explicitly set opacity */
-  visibility: visible; /* Explicitly set visibility */
-  transform: none; /* Reset any transforms that might affect rendering */
 
   button {
     display: flex;
@@ -981,38 +976,8 @@ button.smtcmp-chat-input-model-select {
     justify-content: center;
     height: 20px;
     width: 20px;
-    padding: 0;
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
     color: #ff5500; /* bright orange */
     cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    position: relative;
-    overflow: visible; /* Ensure overflowing content is visible */
-    transform: none; /* Reset any transforms that might affect rendering */
-
-    /* iOS/iPadOS specific fixes */
-    -webkit-transform: none;
-    -webkit-filter: none;
-    -webkit-perspective: none;
-    -webkit-backface-visibility: visible;
-
-    /* Make sure SVG icons are displayed with proper dimensions on all devices */
-    svg {
-      display: inline-block; /* Change to inline-block for better compatibility */
-      height: 12px;
-      width: 12px;
-      transform: none; /* Remove translateZ to fix possible rendering issues */
-      opacity: 1; /* Ensure SVGs are fully opaque */
-      visibility: visible; /* Ensure SVGs are explicitly visible */
-
-      /* iOS/iPadOS specific fixes */
-      -webkit-transform: none;
-      -webkit-filter: none;
-      pointer-events: auto;
-    }
 
     &:hover {
       background-color: rgba(255, 85, 0, 0.2); /* light orange background on hover */
